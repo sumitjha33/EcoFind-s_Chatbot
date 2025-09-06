@@ -22,13 +22,18 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Updated CORS (allows both localhost and production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://eco-finds-sigma.vercel.app"],  # Only allow your frontend domain
+    allow_origins=[
+        "http://localhost:3000",           # For local development
+        "https://eco-finds-sigma.vercel.app"  # For production
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Initialize AI
 try:
