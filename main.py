@@ -22,10 +22,9 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure for production
+    allow_origins=["https://eco-finds-sigma.vercel.app"],  # Only allow your frontend domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
